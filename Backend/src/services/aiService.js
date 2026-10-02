@@ -1,34 +1,15 @@
 const path = require("path");
 const { spawn } = require("child_process");
 
-
-// --------------------------------------------------
-// Python executable
-// --------------------------------------------------
-// Local Windows:
-//   ai/venv/Scripts/python.exe
-//
-// Render/Linux:
-//   python3
-// --------------------------------------------------
-
-const PYTHON_PATH =
-    process.platform === "win32"
-        ? path.join(
-              __dirname,
-              "..",
-              "..",
-              "ai",
-              "venv",
-              "Scripts",
-              "python.exe"
-          )
-        : "python3";
-
-
-// --------------------------------------------------
-// Python AI script
-// --------------------------------------------------
+const PYTHON_PATH = path.join(
+    __dirname,
+    "..",
+    "..",
+    "ai",
+    "venv",
+    "Scripts",
+    "python.exe"
+);
 
 const PYTHON_SCRIPT = path.join(
     __dirname,
@@ -39,12 +20,7 @@ const PYTHON_SCRIPT = path.join(
 );
 
 
-// --------------------------------------------------
-// Get chatbot response
-// --------------------------------------------------
-
 const getChatbotResponse = (message) => {
-
     return new Promise((resolve, reject) => {
 
         const pythonProcess = spawn(
@@ -52,42 +28,39 @@ const getChatbotResponse = (message) => {
             [PYTHON_SCRIPT],
             {
                 cwd: path.dirname(PYTHON_SCRIPT),
-
-                // windowsHide only applies to Windows
-                windowsHide: process.platform === "win32"
+                windowsHide: true
             }
         );
-
 
         let output = "";
         let errorOutput = "";
 
 
-        // --------------------------------------------------
-        // Python stdout
-        // --------------------------------------------------
-
         pythonProcess.stdout.setEncoding("utf8");
+        pythonProcess.stderr.setEncoding("utf8");
+
+
+        // -----------------------------
+        // Python stdout
+        // -----------------------------
 
         pythonProcess.stdout.on("data", (data) => {
             output += data;
         });
 
 
-        // --------------------------------------------------
+        // -----------------------------
         // Python stderr
-        // --------------------------------------------------
-
-        pythonProcess.stderr.setEncoding("utf8");
+        // -----------------------------
 
         pythonProcess.stderr.on("data", (data) => {
             errorOutput += data;
         });
 
 
-        // --------------------------------------------------
+        // -----------------------------
         // Process start error
-        // --------------------------------------------------
+        // -----------------------------
 
         pythonProcess.on("error", (error) => {
 
@@ -100,9 +73,9 @@ const getChatbotResponse = (message) => {
         });
 
 
-        // --------------------------------------------------
+        // -----------------------------
         // Process completed
-        // --------------------------------------------------
+        // -----------------------------
 
         pythonProcess.on("close", (code) => {
 
@@ -110,10 +83,7 @@ const getChatbotResponse = (message) => {
             const trimmedError = errorOutput.trim();
 
 
-            // --------------------------------------------------
             // Python process failed
-            // --------------------------------------------------
-
             if (code !== 0) {
 
                 console.error(
@@ -128,7 +98,6 @@ const getChatbotResponse = (message) => {
 
 
                 // Try to extract structured error
-
                 if (trimmedOutput) {
 
                     try {
@@ -137,19 +106,14 @@ const getChatbotResponse = (message) => {
                             trimmedOutput
                         );
 
-
                         if (result.error) {
-
                             return reject(
                                 new Error(result.error)
                             );
-
                         }
 
                     } catch (error) {
-
                         // Ignore JSON parsing error here
-
                     }
 
                 }
@@ -161,14 +125,10 @@ const getChatbotResponse = (message) => {
                         `AI chatbot process exited with code ${code}`
                     )
                 );
-
             }
 
 
-            // --------------------------------------------------
             // No output
-            // --------------------------------------------------
-
             if (!trimmedOutput) {
 
                 return reject(
@@ -180,18 +140,13 @@ const getChatbotResponse = (message) => {
             }
 
 
-            // --------------------------------------------------
             // Parse JSON
-            // --------------------------------------------------
-
             try {
 
                 const result = JSON.parse(
                     trimmedOutput
                 );
 
-
-                // Python returned an error
 
                 if (result.error) {
 
@@ -201,8 +156,6 @@ const getChatbotResponse = (message) => {
 
                 }
 
-
-                // Validate response
 
                 if (
                     typeof result.response !== "string" ||
@@ -222,7 +175,6 @@ const getChatbotResponse = (message) => {
                     result.response.trim()
                 );
 
-
             } catch (error) {
 
                 return reject(
@@ -236,9 +188,9 @@ const getChatbotResponse = (message) => {
         });
 
 
-        // --------------------------------------------------
+        // -----------------------------
         // Send message to Python
-        // --------------------------------------------------
+        // -----------------------------
 
         pythonProcess.stdin.write(
             JSON.stringify({
@@ -249,14 +201,9 @@ const getChatbotResponse = (message) => {
         pythonProcess.stdin.end();
 
     });
-
 };
 
 
-// --------------------------------------------------
-// Export
-// --------------------------------------------------
-
 module.exports = {
-    getChatbotResponse
+    getChatbotResponse 
 };
