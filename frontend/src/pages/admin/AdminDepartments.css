@@ -1,0 +1,2588 @@
+/* =========================================================
+   ADMIN DEPARTMENTS
+   Premium responsive dashboard
+========================================================= */
+
+.admin-departments-page {
+    --department-primary: #2563eb;
+    --department-primary-dark: #1d4ed8;
+    --department-secondary: #06b6d4;
+    --department-success: #10b981;
+    --department-danger: #ef4444;
+    --department-warning: #f59e0b;
+
+    --department-text: #172033;
+    --department-muted: #64748b;
+    --department-border: #e2e8f0;
+    --department-surface: #ffffff;
+    --department-background: #f4f7fc;
+
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: clip;
+    color: var(--department-text);
+    background: var(--department-background);
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+
+.admin-departments-main {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    min-height: 100vh;
+    margin-left: 280px;
+    width: calc(100% - 280px);
+    transition:
+        margin-left 0.3s ease,
+        width 0.3s ease;
+    isolation: isolate;
+}
+
+.admin-departments-content {
+    position: relative;
+    z-index: 1;
+    min-height: calc(100vh - 70px);
+    width: 100%;
+    padding: 30px;
+    overflow: hidden;
+}
+
+.admin-departments-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.admin-departments-bg-orb {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: 0.55;
+    animation: departmentOrbFloat 12s ease-in-out infinite;
+}
+
+.departments-orb-one {
+    top: 80px;
+    right: -110px;
+    width: 330px;
+    height: 330px;
+    background: radial-gradient(
+        circle,
+        rgba(59, 130, 246, 0.18),
+        rgba(59, 130, 246, 0)
+    );
+}
+
+.departments-orb-two {
+    top: 470px;
+    left: -140px;
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(
+        circle,
+        rgba(6, 182, 212, 0.13),
+        rgba(6, 182, 212, 0)
+    );
+    animation-delay: -5s;
+}
+
+.admin-departments-bg-grid {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.22;
+    background-image:
+        linear-gradient(
+            rgba(148, 163, 184, 0.12) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(148, 163, 184, 0.12) 1px,
+            transparent 1px
+        );
+    background-size: 38px 38px;
+    mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+    );
+}
+
+@keyframes departmentOrbFloat {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(0, -24px, 0);
+    }
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.admin-departments-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.admin-departments-title-area {
+    min-width: 0;
+}
+
+.admin-departments-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    color: var(--department-primary);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+}
+
+.admin-departments-eyebrow i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 27px;
+    height: 27px;
+    border-radius: 9px;
+    color: #2563eb;
+    background: rgba(37, 99, 235, 0.1);
+    font-size: 16px;
+}
+
+.admin-departments-title-area h1 {
+    margin: 0;
+    color: #172033;
+    font-size: clamp(25px, 2.2vw, 34px);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -1px;
+}
+
+.admin-departments-title-area p {
+    max-width: 650px;
+    margin: 9px 0 0;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   ADD BUTTON
+========================================================= */
+
+.admin-departments-add-button {
+    position: relative;
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 46px;
+    padding: 0 20px;
+    overflow: hidden;
+    border: 0;
+    border-radius: 13px;
+    color: #ffffff;
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #0ea5e9
+    );
+    box-shadow:
+        0 9px 22px rgba(37, 99, 235, 0.23),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    font-size: 13px;
+    font-weight: 750;
+    cursor: pointer;
+    transition:
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+.admin-departments-add-button::before {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 65%;
+    height: 100%;
+    content: "";
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.25),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: left 0.55s ease;
+}
+
+.admin-departments-add-button:hover::before {
+    left: 140%;
+}
+
+.admin-departments-add-button:hover {
+    filter: saturate(1.1);
+    box-shadow:
+        0 13px 28px rgba(37, 99, 235, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.admin-departments-add-button i {
+    font-size: 19px;
+}
+
+
+/* =========================================================
+   STATISTICS GRID
+========================================================= */
+
+.admin-department-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 17px;
+    margin-bottom: 26px;
+}
+
+.admin-department-stat-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-width: 0;
+    min-height: 125px;
+    padding: 21px 19px;
+    overflow: hidden;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 19px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow:
+        0 5px 18px rgba(15, 23, 42, 0.045),
+        0 1px 2px rgba(15, 23, 42, 0.025);
+    transition:
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    backdrop-filter: blur(12px);
+}
+
+.admin-department-stat-card::after {
+    position: absolute;
+    right: -36px;
+    bottom: -52px;
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    content: "";
+    background: rgba(37, 99, 235, 0.035);
+    transition: transform 0.35s ease;
+}
+
+.admin-department-stat-card:hover {
+    border-color: rgba(96, 165, 250, 0.55);
+    box-shadow: 0 13px 28px rgba(15, 23, 42, 0.085);
+}
+
+.admin-department-stat-card:hover::after {
+    transform: scale(1.35);
+}
+
+.admin-department-stat-icon {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 51px;
+    height: 51px;
+    border-radius: 15px;
+    font-size: 24px;
+}
+
+.admin-department-stat-icon.total {
+    color: #2563eb;
+    background: linear-gradient(
+        135deg,
+        #dbeafe,
+        #eff6ff
+    );
+}
+
+.admin-department-stat-icon.active {
+    color: #059669;
+    background: linear-gradient(
+        135deg,
+        #d1fae5,
+        #ecfdf5
+    );
+}
+
+.admin-department-stat-icon.inactive {
+    color: #d97706;
+    background: linear-gradient(
+        135deg,
+        #fef3c7,
+        #fffbeb
+    );
+}
+
+.admin-department-stat-icon.showing {
+    color: #0891b2;
+    background: linear-gradient(
+        135deg,
+        #cffafe,
+        #ecfeff
+    );
+}
+
+.admin-department-stat-info {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.admin-department-stat-info > span {
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 650;
+    line-height: 1.4;
+}
+
+.admin-department-stat-info strong {
+    margin-top: 4px;
+    color: #172033;
+    font-size: 27px;
+    font-weight: 850;
+    line-height: 1.2;
+}
+
+.admin-department-stat-info small {
+    margin-top: 5px;
+    color: #94a3b8;
+    font-size: 10px;
+    font-weight: 550;
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.admin-departments-card {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 21px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow:
+        0 8px 28px rgba(15, 23, 42, 0.045),
+        0 2px 6px rgba(15, 23, 42, 0.025);
+    backdrop-filter: blur(12px);
+}
+
+.admin-departments-card-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 25px 26px 21px;
+    border-bottom: 1px solid #edf1f7;
+}
+
+.admin-departments-card-label {
+    color: #2563eb;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 1.45px;
+}
+
+.admin-departments-card-heading h2 {
+    margin: 7px 0 0;
+    color: #172033;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+}
+
+.admin-departments-card-heading p {
+    margin: 6px 0 0;
+    color: #94a3b8;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.admin-departments-live-badge {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 11px;
+    border: 1px solid #bbf7d0;
+    border-radius: 30px;
+    color: #047857;
+    background: #f0fdf4;
+    font-size: 10px;
+    font-weight: 750;
+}
+
+.admin-departments-live-badge > span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.12);
+    animation: departmentLivePulse 1.8s ease-in-out infinite;
+}
+
+@keyframes departmentLivePulse {
+    0%,
+    100% {
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
+    }
+
+    50% {
+        box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.05);
+    }
+}
+
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.admin-departments-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 18px 25px;
+    border-bottom: 1px solid #edf1f7;
+}
+
+.admin-department-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: min(100%, 390px);
+    min-width: 0;
+    height: 43px;
+    padding: 0 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 11px;
+    background: #f8fafc;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.admin-department-search:focus-within {
+    border-color: #93c5fd;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.09);
+}
+
+.admin-department-search > i {
+    flex-shrink: 0;
+    color: #94a3b8;
+    font-size: 18px;
+}
+
+.admin-department-search input {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    color: #1e293b;
+    background: transparent;
+    font: inherit;
+    font-size: 12px;
+}
+
+.admin-department-search input::placeholder {
+    color: #94a3b8;
+}
+
+.admin-department-search button {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border: 0;
+    border-radius: 7px;
+    color: #64748b;
+    background: transparent;
+    cursor: pointer;
+}
+
+.admin-department-search button:hover {
+    color: #1e293b;
+    background: #e2e8f0;
+}
+
+.admin-department-search button i {
+    font-size: 18px;
+}
+
+.admin-department-toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.admin-department-filter {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    height: 43px;
+    padding: 0 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 11px;
+    background: #ffffff;
+}
+
+.admin-department-filter > i {
+    color: #64748b;
+    font-size: 17px;
+}
+
+.admin-department-filter select {
+    max-width: 145px;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    color: #475569;
+    background: transparent;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 650;
+    cursor: pointer;
+}
+
+.admin-department-refresh {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    height: 43px;
+    padding: 0 13px;
+    border: 1px solid #dbeafe;
+    border-radius: 11px;
+    color: #2563eb;
+    background: #eff6ff;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 750;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.admin-department-refresh:hover {
+    border-color: #bfdbfe;
+    background: #dbeafe;
+}
+
+.admin-department-refresh:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.admin-department-refresh i {
+    font-size: 17px;
+}
+
+.is-spinning {
+    display: inline-block;
+    animation: departmentSpin 0.9s linear infinite;
+}
+
+@keyframes departmentSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+========================================================= */
+
+.admin-departments-error {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 18px 25px 0;
+    padding: 12px 14px;
+    border: 1px solid #fecaca;
+    border-radius: 11px;
+    color: #b91c1c;
+    background: #fef2f2;
+}
+
+.admin-departments-error > div {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 0;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.admin-departments-error > div i {
+    flex-shrink: 0;
+    font-size: 18px;
+}
+
+.admin-departments-error button {
+    flex-shrink: 0;
+    padding: 6px 11px;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    color: #b91c1c;
+    background: #ffffff;
+    font-size: 11px;
+    font-weight: 750;
+    cursor: pointer;
+}
+
+.admin-departments-error button:hover {
+    background: #fee2e2;
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+========================================================= */
+
+.admin-departments-table-wrapper {
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+}
+
+.admin-departments-table-wrapper::-webkit-scrollbar {
+    height: 7px;
+}
+
+.admin-departments-table-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.admin-departments-table-wrapper::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #cbd5e1;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.admin-departments-table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.admin-departments-table thead {
+    background: #f8fafc;
+}
+
+.admin-departments-table th {
+    padding: 15px 17px;
+    border-bottom: 1px solid #e9eef5;
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 0.65px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.admin-departments-table td {
+    padding: 16px 17px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #475569;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.admin-departments-table tbody tr {
+    background: #ffffff;
+    transition: background 0.2s ease;
+}
+
+.admin-departments-table tbody tr:hover {
+    background: #f8fbff;
+}
+
+.admin-departments-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+
+/* =========================================================
+   DEPARTMENT CELL
+========================================================= */
+
+.admin-department-person {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-width: 185px;
+}
+
+.admin-department-avatar {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #bfdbfe;
+    border-radius: 13px;
+    color: #2563eb;
+    background: linear-gradient(
+        135deg,
+        #dbeafe,
+        #eff6ff
+    );
+    font-size: 17px;
+    font-weight: 850;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.08);
+}
+
+.admin-department-person-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.admin-department-person-info strong {
+    overflow: hidden;
+    color: #1e293b;
+    font-size: 12px;
+    font-weight: 800;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.admin-department-person-info span {
+    color: #94a3b8;
+    font-size: 10px;
+    font-weight: 550;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.admin-department-description {
+    display: -webkit-box;
+    max-width: 280px;
+    overflow: hidden;
+    color: #64748b;
+    font-size: 11px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.admin-department-not-provided {
+    color: #94a3b8;
+    font-style: italic;
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.admin-department-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #64748b;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.admin-department-date i {
+    color: #94a3b8;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   STATUS BADGES
+========================================================= */
+
+.admin-department-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 10px;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    font-size: 10px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.admin-department-status > span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.admin-department-status.active {
+    border-color: #bbf7d0;
+    color: #047857;
+    background: #ecfdf5;
+}
+
+.admin-department-status.active > span {
+    background: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.admin-department-status.inactive {
+    border-color: #fed7aa;
+    color: #c2410c;
+    background: #fff7ed;
+}
+
+.admin-department-status.inactive > span {
+    background: #f97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.admin-department-actions {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+}
+
+.admin-department-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-size: 16px;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.admin-department-action-btn.view {
+    border-color: #bfdbfe;
+    color: #2563eb;
+    background: #eff6ff;
+}
+
+.admin-department-action-btn.view:hover {
+    border-color: #93c5fd;
+    background: #dbeafe;
+}
+
+.admin-department-action-btn.edit {
+    border-color: #ddd6fe;
+    color: #7c3aed;
+    background: #f5f3ff;
+}
+
+.admin-department-action-btn.edit:hover {
+    border-color: #c4b5fd;
+    background: #ede9fe;
+}
+
+.admin-department-action-btn.deactivate {
+    border-color: #fed7aa;
+    color: #ea580c;
+    background: #fff7ed;
+}
+
+.admin-department-action-btn.deactivate:hover {
+    border-color: #fdba74;
+    background: #ffedd5;
+}
+
+.admin-department-action-btn.activate {
+    border-color: #bbf7d0;
+    color: #059669;
+    background: #ecfdf5;
+}
+
+.admin-department-action-btn.activate:hover {
+    border-color: #86efac;
+    background: #d1fae5;
+}
+
+
+/* =========================================================
+   TABLE LOADING SKELETON
+========================================================= */
+
+.admin-department-loading {
+    padding: 8px 20px;
+}
+
+.admin-department-skeleton {
+    display: grid;
+    grid-template-columns: 1.3fr 1.7fr 0.9fr 0.7fr 0.6fr;
+    align-items: center;
+    gap: 17px;
+    min-height: 69px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.admin-department-skeleton span {
+    display: block;
+    height: 13px;
+    border-radius: 8px;
+    background: linear-gradient(
+        90deg,
+        #edf2f7 25%,
+        #f8fafc 50%,
+        #edf2f7 75%
+    );
+    background-size: 200% 100%;
+    animation: departmentSkeleton 1.4s ease infinite;
+}
+
+.admin-department-skeleton span:first-child {
+    width: 75%;
+    height: 17px;
+}
+
+.admin-department-skeleton span:nth-child(2) {
+    width: 90%;
+}
+
+.admin-department-skeleton span:nth-child(3) {
+    width: 65%;
+}
+
+.admin-department-skeleton span:nth-child(4) {
+    width: 60%;
+}
+
+.admin-department-skeleton span:nth-child(5) {
+    width: 75%;
+}
+
+@keyframes departmentSkeleton {
+    0% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.admin-department-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 310px;
+    padding: 35px 20px;
+    text-align: center;
+}
+
+.admin-department-empty-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 68px;
+    height: 68px;
+    margin-bottom: 15px;
+    border: 1px solid #dbeafe;
+    border-radius: 22px;
+    color: #3b82f6;
+    background: linear-gradient(
+        135deg,
+        #eff6ff,
+        #dbeafe
+    );
+    font-size: 30px;
+    animation: departmentEmptyFloat 3s ease-in-out infinite;
+}
+
+@keyframes departmentEmptyFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+.admin-department-empty h3 {
+    margin: 0;
+    color: #1e293b;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.admin-department-empty p {
+    max-width: 360px;
+    margin: 8px 0 17px;
+    color: #94a3b8;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.admin-department-empty button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 37px;
+    margin: 4px;
+    padding: 0 14px;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    color: #2563eb;
+    background: #eff6ff;
+    font-size: 11px;
+    font-weight: 750;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.admin-department-empty button:hover {
+    background: #dbeafe;
+    transform: translateY(-1px);
+}
+
+.admin-department-empty button i {
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.admin-departments-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 15px 25px;
+    border-top: 1px solid #edf1f7;
+    color: #94a3b8;
+    background: #fcfdff;
+    font-size: 10px;
+}
+
+.admin-departments-footer strong {
+    color: #475569;
+    font-weight: 800;
+}
+
+.admin-departments-footer > span:last-child {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.admin-departments-footer i {
+    color: #10b981;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   MODAL OVERLAY
+========================================================= */
+
+.admin-department-modal-overlay {
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    overflow-y: auto;
+    background: rgba(15, 23, 42, 0.58);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+}
+
+
+/* =========================================================
+   MODAL COMMON
+========================================================= */
+
+.admin-department-details-modal,
+.admin-department-form-modal,
+.admin-department-status-modal {
+    position: relative;
+    width: min(100%, 570px);
+    max-height: calc(100vh - 44px);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow:
+        0 28px 80px rgba(15, 23, 42, 0.24),
+        0 5px 20px rgba(15, 23, 42, 0.1);
+}
+
+.admin-department-details-modal,
+.admin-department-form-modal {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-department-details-modal {
+    width: min(100%, 650px);
+}
+
+.admin-department-form-modal {
+    width: min(100%, 570px);
+}
+
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.admin-department-modal-header {
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 22px 25px;
+    border-bottom: 1px solid #edf1f7;
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #f8fbff
+    );
+}
+
+.admin-department-modal-header > div > span {
+    color: #2563eb;
+    font-size: 9px;
+    font-weight: 850;
+    letter-spacing: 1.5px;
+}
+
+.admin-department-modal-header h2 {
+    margin: 6px 0 0;
+    color: #172033;
+    font-size: 20px;
+    font-weight: 850;
+    letter-spacing: -0.5px;
+}
+
+.admin-department-modal-header > button {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    color: #64748b;
+    background: #ffffff;
+    font-size: 21px;
+    cursor: pointer;
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.admin-department-modal-header > button:hover:not(:disabled) {
+    color: #dc2626;
+    background: #fef2f2;
+    transform: rotate(90deg);
+}
+
+.admin-department-modal-header > button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   DETAILS MODAL BODY
+========================================================= */
+
+.admin-department-details-body {
+    padding: 23px 25px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+}
+
+.admin-department-profile-hero {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 25px;
+    padding: 19px;
+    border: 1px solid #dbeafe;
+    border-radius: 17px;
+    background: linear-gradient(
+        135deg,
+        #eff6ff,
+        #f0f9ff
+    );
+}
+
+.admin-department-profile-avatar {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    border: 1px solid #bfdbfe;
+    border-radius: 19px;
+    color: #2563eb;
+    background: #ffffff;
+    box-shadow: 0 5px 14px rgba(37, 99, 235, 0.1);
+    font-size: 25px;
+    font-weight: 850;
+}
+
+.admin-department-profile-info {
+    min-width: 0;
+}
+
+.admin-department-profile-info h3 {
+    margin: 0;
+    overflow-wrap: anywhere;
+    color: #172033;
+    font-size: 19px;
+    font-weight: 850;
+}
+
+.admin-department-profile-info > span {
+    display: block;
+    margin-top: 4px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.admin-department-profile-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 10px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.admin-department-profile-status > span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.admin-department-profile-status.active {
+    color: #059669;
+}
+
+.admin-department-profile-status.active > span {
+    background: #10b981;
+}
+
+.admin-department-profile-status.inactive {
+    color: #ea580c;
+}
+
+.admin-department-profile-status.inactive > span {
+    background: #f97316;
+}
+
+
+/* =========================================================
+   DETAILS SECTIONS
+========================================================= */
+
+.admin-department-details-section {
+    margin-top: 21px;
+}
+
+.admin-department-details-section-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 13px;
+    color: #334155;
+    font-size: 12px;
+    font-weight: 850;
+}
+
+.admin-department-details-section-title i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 29px;
+    height: 29px;
+    border-radius: 9px;
+    color: #2563eb;
+    background: #eff6ff;
+    font-size: 16px;
+}
+
+.admin-department-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+}
+
+.admin-department-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+    padding: 13px;
+    border: 1px solid #edf1f7;
+    border-radius: 11px;
+    background: #fbfdff;
+}
+
+.admin-department-detail-item > span {
+    color: #94a3b8;
+    font-size: 10px;
+    font-weight: 650;
+}
+
+.admin-department-detail-item > strong {
+    overflow-wrap: anywhere;
+    color: #334155;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.admin-department-description-box {
+    padding: 15px;
+    border: 1px solid #edf1f7;
+    border-radius: 11px;
+    color: #64748b;
+    background: #fbfdff;
+    font-size: 12px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   DETAILS LOADING / ERROR
+========================================================= */
+
+.admin-department-details-loading,
+.admin-department-details-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+    padding: 25px;
+    text-align: center;
+}
+
+.admin-department-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 53px;
+    height: 53px;
+    margin-bottom: 15px;
+    border: 1px solid #bfdbfe;
+    border-radius: 17px;
+    color: #2563eb;
+    background: #eff6ff;
+    font-size: 26px;
+}
+
+.admin-department-spinner i {
+    animation: departmentSpin 0.9s linear infinite;
+}
+
+.admin-department-details-loading strong,
+.admin-department-details-error strong {
+    color: #334155;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.admin-department-details-loading > span,
+.admin-department-details-error > span {
+    max-width: 360px;
+    margin-top: 7px;
+    color: #94a3b8;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.admin-department-details-error > i {
+    margin-bottom: 12px;
+    color: #ef4444;
+    font-size: 32px;
+}
+
+.admin-department-details-error button {
+    margin-top: 15px;
+    padding: 8px 14px;
+    border: 1px solid #bfdbfe;
+    border-radius: 9px;
+    color: #2563eb;
+    background: #eff6ff;
+    font-size: 11px;
+    font-weight: 750;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   MODAL FOOTER
+========================================================= */
+
+.admin-department-modal-footer {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: flex-end;
+    padding: 14px 25px;
+    border-top: 1px solid #edf1f7;
+    background: #fcfdff;
+}
+
+.admin-department-modal-footer button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 37px;
+    padding: 0 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    color: #475569;
+    background: #ffffff;
+    font-size: 11px;
+    font-weight: 750;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.admin-department-modal-footer button:hover {
+    background: #f1f5f9;
+}
+
+.admin-department-modal-footer button i {
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   FORM BODY
+========================================================= */
+
+.admin-department-form-body {
+    padding: 22px 25px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+}
+
+.admin-department-form-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 21px;
+    padding: 12px 13px;
+    border: 1px solid #bfdbfe;
+    border-radius: 11px;
+    color: #1d4ed8;
+    background: #eff6ff;
+    font-size: 11px;
+    line-height: 1.65;
+}
+
+.admin-department-form-info i {
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 17px;
+}
+
+.admin-department-form-group {
+    margin-bottom: 19px;
+}
+
+.admin-department-form-group:last-of-type {
+    margin-bottom: 8px;
+}
+
+.admin-department-form-group label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 8px;
+    color: #334155;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.admin-department-form-group label > span:not(.optional) {
+    color: #ef4444;
+}
+
+.admin-department-form-group label .optional {
+    margin-left: auto;
+    color: #94a3b8;
+    font-size: 9px;
+    font-weight: 650;
+}
+
+.admin-department-input-wrap,
+.admin-department-textarea-wrap {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    border: 1px solid #e2e8f0;
+    border-radius: 11px;
+    background: #f8fafc;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.admin-department-input-wrap {
+    align-items: center;
+    min-height: 45px;
+    padding: 0 12px;
+}
+
+.admin-department-textarea-wrap {
+    padding: 12px;
+}
+
+.admin-department-input-wrap:focus-within,
+.admin-department-textarea-wrap:focus-within {
+    border-color: #93c5fd;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.09);
+}
+
+.admin-department-input-wrap > i,
+.admin-department-textarea-wrap > i {
+    flex-shrink: 0;
+    margin-right: 9px;
+    color: #94a3b8;
+    font-size: 17px;
+}
+
+.admin-department-input-wrap input {
+    width: 100%;
+    min-width: 0;
+    height: 43px;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    color: #1e293b;
+    background: transparent;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+.admin-department-input-wrap input::placeholder,
+.admin-department-textarea-wrap textarea::placeholder {
+    color: #a0aec0;
+}
+
+.admin-department-textarea-wrap textarea {
+    width: 100%;
+    min-width: 0;
+    min-height: 115px;
+    padding: 0;
+    resize: vertical;
+    border: 0;
+    outline: 0;
+    color: #1e293b;
+    background: transparent;
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.admin-department-input-wrap input:disabled,
+.admin-department-textarea-wrap textarea:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.admin-department-character-count {
+    margin-top: 6px;
+    color: #94a3b8;
+    font-size: 9px;
+    text-align: right;
+}
+
+
+/* =========================================================
+   FORM ERROR / SUCCESS
+========================================================= */
+
+.admin-department-form-error,
+.admin-department-form-success {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 13px;
+    padding: 11px 12px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 11px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.admin-department-form-error {
+    border-color: #fecaca;
+    color: #b91c1c;
+    background: #fef2f2;
+}
+
+.admin-department-form-success {
+    border-color: #bbf7d0;
+    color: #047857;
+    background: #ecfdf5;
+}
+
+.admin-department-form-error i,
+.admin-department-form-success i {
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   FORM FOOTER
+========================================================= */
+
+.admin-department-form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 9px;
+    padding: 14px 25px;
+    border-top: 1px solid #edf1f7;
+    background: #fcfdff;
+}
+
+.admin-department-form-footer > button,
+.admin-department-save-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 40px;
+    padding: 0 15px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.admin-department-form-footer > button {
+    border: 1px solid #e2e8f0;
+    color: #64748b;
+    background: #ffffff;
+}
+
+.admin-department-form-footer > button:hover:not(:disabled) {
+    background: #f1f5f9;
+}
+
+.admin-department-save-button {
+    border: 1px solid #2563eb;
+    color: #ffffff;
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #0ea5e9
+    );
+    box-shadow: 0 5px 13px rgba(37, 99, 235, 0.16);
+}
+
+.admin-department-save-button:hover:not(:disabled) {
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+}
+
+.admin-department-form-footer button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.admin-department-save-button i {
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   STATUS CONFIRMATION MODAL
+========================================================= */
+
+.admin-department-status-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(100%, 420px);
+    padding: 30px;
+    text-align: center;
+}
+
+.admin-department-status-modal-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    margin-bottom: 17px;
+    border: 1px solid transparent;
+    border-radius: 21px;
+    font-size: 30px;
+}
+
+.admin-department-status-modal-icon.activate {
+    border-color: #bbf7d0;
+    color: #059669;
+    background: #ecfdf5;
+}
+
+.admin-department-status-modal-icon.deactivate {
+    border-color: #fed7aa;
+    color: #ea580c;
+    background: #fff7ed;
+}
+
+.admin-department-status-modal h2 {
+    margin: 0;
+    color: #172033;
+    font-size: 20px;
+    font-weight: 850;
+}
+
+.admin-department-status-modal > p {
+    margin: 11px 0 17px;
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.75;
+}
+
+.admin-department-status-modal > p strong {
+    color: #334155;
+    font-weight: 850;
+}
+
+.admin-department-status-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 11px 12px;
+    border: 1px solid #dbeafe;
+    border-radius: 10px;
+    color: #1d4ed8;
+    background: #eff6ff;
+    font-size: 10px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.admin-department-status-note i {
+    flex-shrink: 0;
+    font-size: 15px;
+}
+
+.admin-department-status-modal .admin-department-form-error {
+    width: 100%;
+    margin: 0 0 12px;
+    text-align: left;
+}
+
+.admin-department-status-actions {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.admin-department-status-actions button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 40px;
+    padding: 0 17px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    color: #64748b;
+    background: #ffffff;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.admin-department-status-actions button:hover:not(:disabled) {
+    background: #f1f5f9;
+}
+
+.admin-department-status-actions button:last-child {
+    border-color: transparent;
+    color: #ffffff;
+}
+
+.admin-department-status-actions button:last-child.activate {
+    background: linear-gradient(
+        135deg,
+        #059669,
+        #10b981
+    );
+    box-shadow: 0 5px 13px rgba(16, 185, 129, 0.17);
+}
+
+.admin-department-status-actions button:last-child.deactivate {
+    background: linear-gradient(
+        135deg,
+        #ea580c,
+        #f97316
+    );
+    box-shadow: 0 5px 13px rgba(249, 115, 22, 0.17);
+}
+
+.admin-department-status-actions button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   FORM ELEMENT FOCUS
+========================================================= */
+
+.admin-departments-page button:focus-visible,
+.admin-departments-page input:focus-visible,
+.admin-departments-page select:focus-visible,
+.admin-departments-page textarea:focus-visible {
+    outline: 3px solid rgba(59, 130, 246, 0.3);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1400px) {
+    .admin-departments-main {
+        margin-left: 280px;
+        width: calc(100% - 280px);
+    }
+
+    .admin-departments-content {
+        padding: 34px 38px;
+    }
+
+    .admin-department-stat-grid {
+        gap: 20px;
+    }
+
+    .admin-department-stat-card {
+        min-height: 135px;
+        padding: 23px;
+    }
+
+    .admin-departments-table th,
+    .admin-departments-table td {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}
+
+
+/* =========================================================
+   MINI LAPTOP / SMALL DESKTOP
+========================================================= */
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .admin-departments-main {
+        margin-left: 280px;
+        width: calc(100% - 280px);
+    }
+
+    .admin-departments-content {
+        padding: 27px;
+    }
+
+    .admin-department-stat-grid {
+        gap: 13px;
+    }
+
+    .admin-department-stat-card {
+        gap: 11px;
+        padding: 17px 14px;
+    }
+
+    .admin-department-stat-icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 13px;
+        font-size: 21px;
+    }
+
+    .admin-department-stat-info > span {
+        font-size: 11px;
+    }
+
+    .admin-department-stat-info strong {
+        font-size: 24px;
+    }
+}
+
+
+/* =========================================================
+   TABLET LANDSCAPE / MINI LAPTOP
+========================================================= */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .admin-departments-main {
+        margin-left: 250px;
+        width: calc(100% - 250px);
+    }
+
+    .admin-departments-content {
+        padding: 23px;
+    }
+
+    .admin-departments-header {
+        gap: 15px;
+        margin-bottom: 23px;
+    }
+
+    .admin-departments-title-area h1 {
+        font-size: 27px;
+    }
+
+    .admin-departments-title-area p {
+        font-size: 12px;
+    }
+
+    .admin-departments-add-button {
+        min-height: 42px;
+        padding: 0 14px;
+        font-size: 11px;
+    }
+
+    .admin-department-stat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+        margin-bottom: 22px;
+    }
+
+    .admin-department-stat-card {
+        min-height: 105px;
+        padding: 17px;
+    }
+
+    .admin-department-stat-icon {
+        width: 46px;
+        height: 46px;
+    }
+
+    .admin-departments-card-heading {
+        padding: 21px;
+    }
+
+    .admin-departments-toolbar {
+        padding: 15px 20px;
+    }
+
+    .admin-departments-table {
+        min-width: 690px;
+    }
+
+    .admin-departments-table th,
+    .admin-departments-table td {
+        padding: 13px 12px;
+    }
+}
+
+
+/* =========================================================
+   TABLET PORTRAIT
+   Sidebar drawer is expected at <= 991px.
+========================================================= */
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .admin-departments-main {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .admin-departments-content {
+        min-height: calc(100vh - 65px);
+        padding: 24px;
+    }
+
+    .admin-departments-header {
+        align-items: flex-start;
+        margin-bottom: 23px;
+    }
+
+    .admin-departments-title-area h1 {
+        font-size: 28px;
+    }
+
+    .admin-department-stat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .admin-department-stat-card {
+        min-height: 112px;
+    }
+
+    .admin-departments-card-heading {
+        padding: 22px;
+    }
+
+    .admin-departments-toolbar {
+        flex-wrap: wrap;
+        padding: 16px 20px;
+    }
+
+    .admin-department-search {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .admin-department-toolbar-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .admin-departments-table {
+        min-width: 760px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+    .admin-departments-main {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .admin-departments-content {
+        min-height: calc(100vh - 60px);
+        padding: 18px 14px 25px;
+    }
+
+    .admin-departments-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 17px;
+        margin-bottom: 21px;
+    }
+
+    .admin-departments-title-area {
+        width: 100%;
+    }
+
+    .admin-departments-eyebrow {
+        margin-bottom: 9px;
+        font-size: 9px;
+    }
+
+    .admin-departments-title-area h1 {
+        font-size: 25px;
+        letter-spacing: -0.7px;
+    }
+
+    .admin-departments-title-area p {
+        margin-top: 7px;
+        font-size: 11px;
+    }
+
+    .admin-departments-add-button {
+        width: 100%;
+        min-height: 43px;
+    }
+
+    .admin-department-stat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+
+    .admin-department-stat-card {
+        min-height: 104px;
+        gap: 10px;
+        padding: 13px 11px;
+        border-radius: 15px;
+    }
+
+    .admin-department-stat-icon {
+        width: 39px;
+        height: 39px;
+        border-radius: 12px;
+        font-size: 19px;
+    }
+
+    .admin-department-stat-info > span {
+        font-size: 10px;
+    }
+
+    .admin-department-stat-info strong {
+        margin-top: 3px;
+        font-size: 23px;
+    }
+
+    .admin-department-stat-info small {
+        font-size: 8px;
+    }
+
+    .admin-departments-card {
+        border-radius: 16px;
+    }
+
+    .admin-departments-card-heading {
+        align-items: flex-start;
+        padding: 18px 15px;
+    }
+
+    .admin-departments-card-heading h2 {
+        font-size: 17px;
+    }
+
+    .admin-departments-card-heading p {
+        font-size: 10px;
+    }
+
+    .admin-departments-live-badge {
+        padding: 7px 9px;
+        font-size: 9px;
+    }
+
+    .admin-departments-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 11px;
+        padding: 14px;
+    }
+
+    .admin-department-search {
+        width: 100%;
+        height: 41px;
+    }
+
+    .admin-department-search input {
+        font-size: 11px;
+    }
+
+    .admin-department-toolbar-actions {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        width: 100%;
+    }
+
+    .admin-department-filter {
+        min-width: 0;
+        height: 40px;
+    }
+
+    .admin-department-filter select {
+        width: 100%;
+        max-width: none;
+        font-size: 10px;
+    }
+
+    .admin-department-refresh {
+        height: 40px;
+    }
+
+    .admin-departments-error {
+        margin: 13px 14px 0;
+        padding: 10px;
+    }
+
+    .admin-departments-table {
+        min-width: 740px;
+    }
+
+    .admin-departments-table th,
+    .admin-departments-table td {
+        padding: 12px 11px;
+    }
+
+    .admin-departments-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+        padding: 13px 15px;
+        font-size: 9px;
+    }
+
+    .admin-department-modal-overlay {
+        align-items: flex-start;
+        padding: 14px;
+    }
+
+    .admin-department-details-modal,
+    .admin-department-form-modal,
+    .admin-department-status-modal {
+        max-height: calc(100dvh - 28px);
+        margin: auto 0;
+        border-radius: 18px;
+    }
+
+    .admin-department-modal-header {
+        padding: 17px;
+    }
+
+    .admin-department-modal-header h2 {
+        font-size: 17px;
+    }
+
+    .admin-department-details-body,
+    .admin-department-form-body {
+        padding: 17px;
+    }
+
+    .admin-department-profile-hero {
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .admin-department-profile-avatar {
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
+        font-size: 21px;
+    }
+
+    .admin-department-profile-info h3 {
+        font-size: 16px;
+    }
+
+    .admin-department-details-grid {
+        gap: 9px;
+    }
+
+    .admin-department-detail-item {
+        padding: 11px;
+    }
+
+    .admin-department-modal-footer,
+    .admin-department-form-footer {
+        padding: 12px 17px;
+    }
+
+    .admin-department-status-modal {
+        padding: 24px 19px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+    .admin-departments-content {
+        padding: 15px 11px 22px;
+    }
+
+    .admin-departments-title-area h1 {
+        font-size: 22px;
+    }
+
+    .admin-department-stat-grid {
+        gap: 9px;
+    }
+
+    .admin-department-stat-card {
+        gap: 8px;
+        min-height: 95px;
+        padding: 11px 9px;
+    }
+
+    .admin-department-stat-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        font-size: 17px;
+    }
+
+    .admin-department-stat-info > span {
+        font-size: 9px;
+    }
+
+    .admin-department-stat-info strong {
+        font-size: 21px;
+    }
+
+    .admin-department-stat-info small {
+        display: none;
+    }
+
+    .admin-departments-card-heading {
+        gap: 8px;
+        padding: 16px 12px;
+    }
+
+    .admin-departments-card-heading h2 {
+        font-size: 15px;
+    }
+
+    .admin-departments-live-badge {
+        gap: 6px;
+        padding: 6px 7px;
+        font-size: 8px;
+    }
+
+    .admin-departments-toolbar {
+        padding: 12px;
+    }
+
+    .admin-department-refresh {
+        gap: 5px;
+        padding: 0 9px;
+        font-size: 10px;
+    }
+
+    .admin-department-empty {
+        min-height: 270px;
+        padding: 28px 14px;
+    }
+
+    .admin-department-empty-icon {
+        width: 58px;
+        height: 58px;
+        font-size: 26px;
+    }
+
+    .admin-department-empty h3 {
+        font-size: 15px;
+    }
+
+    .admin-department-empty p {
+        font-size: 11px;
+    }
+
+    .admin-department-modal-overlay {
+        padding: 9px;
+    }
+
+    .admin-department-details-modal,
+    .admin-department-form-modal,
+    .admin-department-status-modal {
+        max-height: calc(100dvh - 18px);
+        border-radius: 16px;
+    }
+
+    .admin-department-modal-header {
+        padding: 14px;
+    }
+
+    .admin-department-modal-header h2 {
+        font-size: 16px;
+    }
+
+    .admin-department-details-body,
+    .admin-department-form-body {
+        padding: 14px;
+    }
+
+    .admin-department-details-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .admin-department-detail-item {
+        padding: 10px;
+    }
+
+    .admin-department-detail-item > span {
+        font-size: 9px;
+    }
+
+    .admin-department-detail-item > strong {
+        font-size: 10px;
+    }
+
+    .admin-department-description-box {
+        padding: 12px;
+        font-size: 11px;
+    }
+
+    .admin-department-modal-footer,
+    .admin-department-form-footer {
+        padding: 11px 14px;
+    }
+
+    .admin-department-form-footer > button,
+    .admin-department-save-button {
+        min-height: 38px;
+        padding: 0 11px;
+        font-size: 10px;
+    }
+
+    .admin-department-status-modal {
+        padding: 22px 15px;
+    }
+
+    .admin-department-status-modal h2 {
+        font-size: 18px;
+    }
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+    .admin-departments-content {
+        padding-right: 9px;
+        padding-left: 9px;
+    }
+
+    .admin-department-stat-card {
+        gap: 7px;
+        padding: 10px 7px;
+    }
+
+    .admin-department-stat-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 15px;
+    }
+
+    .admin-department-stat-info > span {
+        font-size: 8px;
+    }
+
+    .admin-department-stat-info strong {
+        font-size: 19px;
+    }
+
+    .admin-department-status-actions {
+        gap: 6px;
+    }
+
+    .admin-department-status-actions button {
+        padding: 0 10px;
+        font-size: 10px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .admin-departments-page *,
+    .admin-departments-page *::before,
+    .admin-departments-page *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

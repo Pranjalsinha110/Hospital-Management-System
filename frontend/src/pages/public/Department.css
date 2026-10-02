@@ -1,0 +1,1201 @@
+
+
+.department-page {
+  --department-primary: #159a9c;
+  --department-primary-dark: #087678;
+  --department-text: #17324d;
+  --department-muted: #60788c;
+  --department-border: #dcecef;
+
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+
+  color: var(--department-text);
+  background: transparent !important;
+}
+
+/* Keep the animated background visible */
+.department-page,
+.department-page section,
+.department-page article {
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Do not create any full-page white layer */
+.department-page::before,
+.department-page::after {
+  display: none !important;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.department-hero {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: 60px;
+
+  min-height: 650px;
+  padding: 85px 7% 95px;
+
+  background: transparent !important;
+  overflow: hidden;
+}
+
+.department-hero::before,
+.department-hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  border-radius: 50%;
+  pointer-events: none;
+
+  animation: departmentBubbleFloat 10s ease-in-out infinite;
+}
+
+.department-hero::before {
+  width: 390px;
+  height: 390px;
+  top: -220px;
+  right: -110px;
+  background: rgba(199, 243, 238, 0.28);
+}
+
+.department-hero::after {
+  width: 270px;
+  height: 270px;
+  bottom: -175px;
+  left: -100px;
+  background: rgba(220, 236, 255, 0.3);
+  animation-delay: 2s;
+}
+
+.department-hero-content,
+.department-hero-visual {
+  position: relative;
+  z-index: 3;
+}
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.department-hero-content {
+  max-width: 700px;
+  animation: departmentReveal 0.8s ease both;
+}
+
+.department-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+
+  padding: 10px 16px;
+
+  color: var(--department-primary-dark) !important;
+  -webkit-text-fill-color: var(--department-primary-dark) !important;
+
+  background: #ffffff !important;
+  border: 1px solid #bce8e4;
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  box-shadow: 0 8px 22px rgba(21, 154, 156, 0.12);
+}
+
+.eyebrow-dot {
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+
+  border-radius: 50%;
+  background: var(--department-primary);
+
+  box-shadow: 0 0 0 5px #d8f7f3;
+
+  animation: departmentPulse 2s ease-in-out infinite;
+}
+
+.department-hero h1 {
+  max-width: 700px;
+  margin: 25px 0 20px;
+
+  color: var(--department-text) !important;
+  -webkit-text-fill-color: var(--department-text) !important;
+
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+
+  font-size: clamp(40px, 5.3vw, 74px);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -2.8px;
+}
+
+.department-hero h1 span {
+  display: inline-block;
+
+  color: var(--department-primary) !important;
+  -webkit-text-fill-color: var(--department-primary) !important;
+
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+
+  animation: departmentTextFloat 4s ease-in-out infinite;
+}
+
+.department-hero-content > p {
+  max-width: 610px;
+  margin: 0;
+
+  color: #526e82 !important;
+  -webkit-text-fill-color: #526e82 !important;
+
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+.department-hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.department-primary-btn,
+.department-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+
+  min-height: 53px;
+  padding: 0 24px;
+
+  border-radius: 15px;
+
+  font-size: 14px;
+  font-weight: 900;
+  text-decoration: none;
+
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    background 0.28s ease;
+}
+
+.department-primary-btn {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+
+  background: var(--department-primary) !important;
+  border: 1px solid var(--department-primary);
+
+  box-shadow: 0 12px 28px rgba(21, 154, 156, 0.25);
+}
+
+.department-secondary-btn {
+  color: var(--department-text) !important;
+  -webkit-text-fill-color: var(--department-text) !important;
+
+  background: #ffffff !important;
+  border: 1px solid #dce9ee;
+
+  box-shadow: 0 7px 18px rgba(23, 50, 77, 0.08);
+}
+
+.department-primary-btn:hover,
+.department-secondary-btn:hover {
+  transform: translateY(-5px);
+}
+
+.department-primary-btn:hover {
+  background: var(--department-primary-dark) !important;
+}
+
+.department-secondary-btn:hover {
+  box-shadow: 0 15px 30px rgba(23, 50, 77, 0.14);
+}
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.department-hero-visual {
+  position: relative;
+  min-height: 420px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.department-orbit {
+  position: absolute;
+
+  width: 365px;
+  height: 365px;
+
+  border: 1px dashed rgba(21, 154, 156, 0.55);
+  border-radius: 50%;
+
+  animation: departmentRotate 25s linear infinite;
+}
+
+.department-orbit::before,
+.department-orbit::after {
+  content: "";
+  position: absolute;
+
+  width: 19px;
+  height: 19px;
+
+  border-radius: 50%;
+  background: var(--department-primary);
+
+  box-shadow: 0 0 0 8px #d8f7f3;
+}
+
+.department-orbit::before {
+  top: 35px;
+  left: 35px;
+}
+
+.department-orbit::after {
+  right: 20px;
+  bottom: 48px;
+
+  background: #6388e4;
+  box-shadow: 0 0 0 8px #e7edff;
+}
+
+.department-medical-card {
+  position: relative;
+  z-index: 3;
+
+  width: min(100%, 360px);
+  padding: 32px;
+
+  background: #ffffff !important;
+  border: 1px solid #dcecef;
+  border-radius: 30px;
+
+  box-shadow: 0 25px 65px rgba(24, 91, 112, 0.18);
+
+  animation: departmentCardFloat 5.5s ease-in-out infinite;
+}
+
+.medical-icon {
+  display: grid;
+  place-items: center;
+
+  width: 88px;
+  height: 88px;
+  margin-bottom: 23px;
+
+  border-radius: 26px;
+
+  background: linear-gradient(135deg, #159a9c, #5bcabd) !important;
+
+  font-size: 44px;
+  box-shadow: 0 15px 30px rgba(21, 154, 156, 0.25);
+}
+
+.department-medical-card h3 {
+  margin: 0 0 11px;
+
+  color: var(--department-text) !important;
+  -webkit-text-fill-color: var(--department-text) !important;
+
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.department-medical-card p {
+  margin: 0;
+
+  color: var(--department-muted) !important;
+  -webkit-text-fill-color: var(--department-muted) !important;
+
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.floating-stat {
+  position: absolute;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 18px;
+
+  color: var(--department-text) !important;
+  -webkit-text-fill-color: var(--department-text) !important;
+
+  background: #ffffff !important;
+  border: 1px solid #e1edf1;
+  border-radius: 17px;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  box-shadow: 0 16px 35px rgba(23, 50, 77, 0.14);
+
+  animation: departmentCardFloat 5s ease-in-out infinite;
+}
+
+.floating-stat > span {
+  font-size: 25px;
+}
+
+.floating-stat strong {
+  display: block;
+  margin-bottom: 2px;
+
+  color: var(--department-primary) !important;
+  -webkit-text-fill-color: var(--department-primary) !important;
+
+  font-size: 19px;
+  font-weight: 900;
+}
+
+.stat-one {
+  top: 35px;
+  right: -5px;
+}
+
+.stat-two {
+  bottom: 28px;
+  left: -5px;
+  animation-delay: 1.2s;
+}
+
+/* =========================================================
+   LIST SECTION
+========================================================= */
+
+.department-list-section {
+  position: relative;
+  z-index: 2;
+
+  padding: 95px 7%;
+
+  background: transparent !important;
+}
+
+.department-heading {
+  max-width: 800px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.section-label {
+  display: inline-block;
+  margin-bottom: 14px;
+
+  color: var(--department-primary) !important;
+  -webkit-text-fill-color: var(--department-primary) !important;
+
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.department-heading h2,
+.highlight-content h2 {
+  margin: 0 auto 17px;
+
+  color: var(--department-text) !important;
+  -webkit-text-fill-color: var(--department-text) !important;
+
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+
+  font-size: clamp(31px, 4vw, 50px);
+  line-height: 1.15;
+  font-weight: 900;
+  letter-spacing: -1.4px;
+}
+
+.department-heading p,
+.highlight-content > p {
+  color: var(--department-muted) !important;
+  -webkit-text-fill-color: var(--department-muted) !important;
+
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.department-heading p {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   SEARCH / FILTER
+========================================================= */
+
+.department-toolbar {
+  max-width: 1250px;
+  margin: 0 auto 36px;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.department-search {
+  position: relative;
+  flex: 1;
+  min-width: 260px;
+}
+
+.department-search > span {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+
+  transform: translateY(-50%);
+
+  color: var(--department-primary) !important;
+  font-size: 23px;
+  pointer-events: none;
+}
+
+.department-search input,
+.department-toolbar select {
+  width: 100%;
+  height: 54px;
+
+  color: var(--department-text) !important;
+  -webkit-text-fill-color: var(--department-text) !important;
+
+  background: #ffffff !important;
+  border: 1px solid #dce9ee;
+  border-radius: 15px;
+
+  outline: none;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.department-search input {
+  padding: 0 20px 0 50px;
+}
+
+.department-search input::placeholder {
+  color: #8aa0af !important;
+  -webkit-text-fill-color: #8aa0af !important;
+}
+
+.department-search input:focus,
+.department-toolbar select:focus {
+  border-color: var(--department-primary);
+  box-shadow: 0 0 0 4px #def8f4;
+}
+
+.department-toolbar select {
+  width: 210px;
+  padding: 0 15px;
+  cursor: pointer;
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.department-grid {
+  max-width: 1250px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 23px;
+}
+
+.department-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 26px;
+
+  background: #ffffff !important;
+  border: 1px solid var(--department-border);
+  border-radius: 24px;
+
+  box-shadow: 0 8px 24px rgba(26, 71, 92, 0.07);
+
+  animation: departmentReveal 0.7s ease both;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.department-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 5px;
+  background: var(--card-color);
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition: transform 0.3s ease;
+}
+
+.department-card:hover {
+  transform: translateY(-9px);
+  border-color: #c7e3e7;
+  box-shadow: 0 22px 45px rgba(26, 71, 92, 0.15);
+}
+
+.department-card:hover::before {
+  transform: scaleX(1);
+}
+
+.department-card-icon {
+  display: grid;
+  place-items: center;
+
+  width: 67px;
+  height: 67px;
+  margin-bottom: 20px;
+
+  border-radius: 20px;
+  background: var(--card-light) !important;
+
+  font-size: 32px;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.department-card:hover .department-card-icon {
+  transform: rotate(-7deg) scale(1.09);
+  box-shadow: 0 10px 20px rgba(23, 50, 77, 0.1);
+}
+
+.department-card h3 {
+  margin: 0 0 9px;
+
+  color: var(--department-text) !important;
+  -webkit-text-fill-color: var(--department-text) !important;
+
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.department-card h4 {
+  min-height: 43px;
+  margin: 0 0 13px;
+
+  color: var(--card-color) !important;
+  -webkit-text-fill-color: var(--card-color) !important;
+
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.55;
+}
+
+.department-card p {
+  min-height: 98px;
+  margin: 0 0 19px;
+
+  color: var(--department-muted) !important;
+  -webkit-text-fill-color: var(--department-muted) !important;
+
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.department-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 23px;
+}
+
+.department-services span {
+  padding: 7px 9px;
+
+  color: #587083 !important;
+  -webkit-text-fill-color: #587083 !important;
+
+  background: #f3f8fa !important;
+  border-radius: 8px;
+
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.department-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: auto;
+
+  color: var(--card-color) !important;
+  -webkit-text-fill-color: var(--card-color) !important;
+
+  font-size: 13px;
+  font-weight: 900;
+  text-decoration: none;
+
+  transition: gap 0.25s ease;
+}
+
+.department-card-link:hover {
+  gap: 14px;
+}
+
+.department-empty {
+  grid-column: 1 / -1;
+
+  padding: 55px 20px;
+
+  background: #ffffff !important;
+  border: 1px dashed #bcd8df;
+  border-radius: 22px;
+
+  text-align: center;
+}
+
+.department-empty h3 {
+  margin: 0 0 9px;
+  color: var(--department-text) !important;
+}
+
+.department-empty p {
+  margin: 0;
+  color: var(--department-muted) !important;
+}
+
+/* =========================================================
+   HIGHLIGHT SECTION
+========================================================= */
+
+.department-highlight {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 70px;
+
+  padding: 95px 7%;
+
+  background: transparent !important;
+}
+
+.highlight-visual {
+  position: relative;
+  min-height: 360px;
+
+  display: grid;
+  place-items: center;
+}
+
+.highlight-circle {
+  display: grid;
+  place-items: center;
+
+  width: 310px;
+  height: 310px;
+
+  background: rgba(217, 246, 241, 0.9) !important;
+  border: 18px solid #ffffff;
+  border-radius: 50%;
+
+  font-size: 110px;
+
+  box-shadow: 0 22px 52px rgba(21, 154, 156, 0.18);
+
+  animation: departmentCardFloat 6s ease-in-out infinite;
+}
+
+.highlight-badge {
+  position: absolute;
+  top: 25px;
+  right: 0;
+
+  padding: 14px 18px;
+
+  color: var(--department-primary-dark) !important;
+  -webkit-text-fill-color: var(--department-primary-dark) !important;
+
+  background: #ffffff !important;
+  border: 1px solid #e0edef;
+  border-radius: 15px;
+
+  font-size: 12px;
+  font-weight: 900;
+
+  box-shadow: 0 15px 35px rgba(23, 50, 77, 0.12);
+}
+
+.highlight-content {
+  animation: departmentReveal 0.9s ease both;
+}
+
+.highlight-content > p {
+  max-width: 650px;
+  margin: 0 0 26px;
+}
+
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.feature-list span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--department-text) !important;
+  -webkit-text-fill-color: var(--department-text) !important;
+
+  font-size: 13px;
+  font-weight: 900;
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.department-cta {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 52px 60px;
+
+  background: linear-gradient(135deg, #117f83, #1ca8a5) !important;
+  border-radius: 30px;
+
+  box-shadow: 0 23px 52px rgba(21, 154, 156, 0.22);
+}
+
+.department-cta h2 {
+  margin: 0 0 11px;
+
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+
+  font-size: clamp(25px, 3vw, 39px);
+  line-height: 1.15;
+  font-weight: 900;
+}
+
+.department-cta p {
+  max-width: 600px;
+  margin: 0;
+
+  color: #e5ffff !important;
+  -webkit-text-fill-color: #e5ffff !important;
+
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.department-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 54px;
+  padding: 0 25px;
+
+  flex-shrink: 0;
+
+  color: var(--department-primary-dark) !important;
+  -webkit-text-fill-color: var(--department-primary-dark) !important;
+
+  background: #ffffff !important;
+  border-radius: 15px;
+
+  font-size: 14px;
+  font-weight: 900;
+  text-decoration: none;
+
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.department-cta-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes departmentReveal {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes departmentBubbleFloat {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(20px, 25px);
+  }
+}
+
+@keyframes departmentCardFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes departmentTextFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes departmentRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes departmentPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .department-hero {
+    gap: 35px;
+  }
+
+  .department-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .department-highlight {
+    gap: 40px;
+  }
+}
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+  .department-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 70px 6% 85px;
+    text-align: center;
+  }
+
+  .department-hero-content {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .department-hero h1,
+  .department-hero-content > p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .department-hero-actions {
+    justify-content: center;
+  }
+
+  .department-hero-visual {
+    min-height: 360px;
+    margin-top: 15px;
+  }
+
+  .department-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .department-highlight {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    text-align: center;
+  }
+
+  .highlight-visual {
+    order: 2;
+  }
+
+  .highlight-content {
+    order: 1;
+  }
+
+  .highlight-content > p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .feature-list {
+    text-align: left;
+  }
+
+  .department-cta {
+    margin: 65px 6%;
+    padding: 42px 35px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 560px) {
+  .department-hero {
+    padding: 48px 20px 60px;
+  }
+
+  .department-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.6px;
+  }
+
+  .department-hero h1 {
+    font-size: 40px;
+    letter-spacing: -1.6px;
+  }
+
+  .department-hero-content > p {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .department-hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .department-primary-btn,
+  .department-secondary-btn {
+    width: 100%;
+  }
+
+  .department-hero-visual {
+    min-height: 310px;
+  }
+
+  .department-orbit {
+    width: 280px;
+    height: 280px;
+  }
+
+  .department-medical-card {
+    width: 285px;
+    padding: 24px;
+  }
+
+  .medical-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 35px;
+  }
+
+  .department-medical-card h3 {
+    font-size: 21px;
+  }
+
+  .floating-stat {
+    padding: 10px 12px;
+    font-size: 10px;
+  }
+
+  .floating-stat strong {
+    font-size: 16px;
+  }
+
+  .department-list-section {
+    padding: 60px 20px;
+  }
+
+  .department-heading {
+    margin-bottom: 30px;
+  }
+
+  .department-heading h2,
+  .highlight-content h2 {
+    font-size: 31px;
+    letter-spacing: -0.8px;
+  }
+
+  .department-heading p {
+    font-size: 14px;
+  }
+
+  .department-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .department-search {
+    min-width: 100%;
+  }
+
+  .department-toolbar select {
+    width: 100%;
+  }
+
+  .department-grid {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .department-card p {
+    min-height: auto;
+  }
+
+  .department-highlight {
+    padding: 60px 20px;
+  }
+
+  .highlight-circle {
+    width: 245px;
+    height: 245px;
+    font-size: 82px;
+  }
+
+  .highlight-badge {
+    top: 5px;
+    right: 0;
+    font-size: 10px;
+  }
+
+  .feature-list {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .department-cta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 25px;
+
+    margin: 45px 20px;
+    padding: 32px 24px;
+  }
+
+  .department-cta h2 {
+    font-size: 28px;
+  }
+
+  .department-cta-btn {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .department-page *,
+  .department-page *::before,
+  .department-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

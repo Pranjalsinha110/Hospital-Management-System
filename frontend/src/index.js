@@ -1,0 +1,26 @@
+
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "boxicons/css/boxicons.min.css";
+
+import "./index.css";
+import App from "./App";
+
+const root = ReactDOM.createRoot(
+    document.getElementById("root")
+);
+console.log(
+  "Razorpay ENV:",
+  process.env.REACT_APP_RAZORPAY_KEY_ID
+);
+root.render(
+    <React.StrictMode>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </React.StrictMode>
+);
+

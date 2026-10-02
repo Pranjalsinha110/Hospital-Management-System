@@ -1,0 +1,917 @@
+/* =========================================================
+   ANIMATED BACKGROUND
+   Hospital Management System
+   Premium Healthcare
+   ========================================================= */
+
+.animated-background {
+  --ab-primary: var(--primary, #0f9d8a);
+  --ab-secondary: var(--secondary, #2563eb);
+  --ab-accent: var(--accent, #06b6d4);
+
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  pointer-events: none;
+
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(15, 157, 138, 0.12),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 90% 20%,
+      rgba(37, 99, 235, 0.10),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(6, 182, 212, 0.08),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #f8fcfc 0%,
+      #eef9f8 45%,
+      #f4f8ff 100%
+    );
+}
+
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+.animated-background__base {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.15),
+      transparent 35%,
+      rgba(255, 255, 255, 0.12)
+    );
+
+  animation: ab-base-drift 18s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   ORBS
+   ========================================================= */
+
+.animated-background__orb {
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  border-radius: 50%;
+
+  filter: blur(70px);
+
+  opacity: 0.55;
+
+  z-index: 1;
+
+  will-change: transform, opacity;
+}
+
+
+/* Orb 1 */
+
+.animated-background__orb--one {
+  top: -150px;
+  left: -100px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(15, 157, 138, 0.45) 0%,
+      rgba(15, 157, 138, 0.18) 35%,
+      transparent 70%
+    );
+
+  animation:
+    ab-orb-one 14s ease-in-out infinite,
+    ab-orb-glow-one 6s ease-in-out infinite;
+}
+
+
+/* Orb 2 */
+
+.animated-background__orb--two {
+  top: 20%;
+  right: -180px;
+
+  width: 500px;
+  height: 500px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(37, 99, 235, 0.38) 0%,
+      rgba(37, 99, 235, 0.14) 38%,
+      transparent 72%
+    );
+
+  animation:
+    ab-orb-two 17s ease-in-out infinite,
+    ab-orb-glow-two 7s ease-in-out infinite;
+}
+
+
+/* Orb 3 */
+
+.animated-background__orb--three {
+  bottom: -220px;
+  left: 35%;
+
+  width: 480px;
+  height: 480px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(6, 182, 212, 0.30) 0%,
+      rgba(6, 182, 212, 0.10) 40%,
+      transparent 72%
+    );
+
+  animation:
+    ab-orb-three 20s ease-in-out infinite,
+    ab-orb-glow-three 8s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   GRID
+   ========================================================= */
+
+.animated-background__grid {
+  position: absolute;
+  inset: 0;
+
+  z-index: 2;
+
+  opacity: 0.35;
+
+  background-image:
+    linear-gradient(
+      rgba(15, 118, 110, 0.055) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(15, 118, 110, 0.055) 1px,
+      transparent 1px
+    );
+
+  background-size: 55px 55px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 18%,
+      black 82%,
+      transparent 100%
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 18%,
+      black 82%,
+      transparent 100%
+    );
+
+  animation: ab-grid-drift 24s linear infinite;
+}
+
+
+/* =========================================================
+   LIGHT SWEEP
+   ========================================================= */
+
+.animated-background__light-sweep {
+  position: absolute;
+
+  top: -30%;
+  left: -20%;
+
+  width: 45%;
+  height: 160%;
+
+  z-index: 3;
+
+  opacity: 0.16;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.9),
+      transparent
+    );
+
+  filter: blur(35px);
+
+  transform: rotate(18deg);
+
+  animation: ab-light-sweep 12s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   CENTER GLOW
+   ========================================================= */
+
+.animated-background__center-glow {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 650px;
+  height: 650px;
+
+  z-index: 1;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(15, 157, 138, 0.07) 0%,
+      rgba(6, 182, 212, 0.035) 35%,
+      transparent 70%
+    );
+
+  filter: blur(10px);
+
+  animation: ab-center-pulse 8s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   PARTICLES
+   ========================================================= */
+
+.animated-background__particles {
+  position: absolute;
+  inset: 0;
+
+  z-index: 4;
+}
+
+
+.animated-background__particle {
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: rgba(15, 157, 138, 0.35);
+
+  box-shadow:
+    0 0 12px rgba(15, 157, 138, 0.25);
+
+  animation: ab-particle-float 7s ease-in-out infinite;
+}
+
+
+.animated-background__particle--one {
+  top: 22%;
+  left: 18%;
+
+  animation-delay: 0s;
+}
+
+
+.animated-background__particle--two {
+  top: 34%;
+  right: 22%;
+
+  width: 4px;
+  height: 4px;
+
+  animation-delay: 1.5s;
+}
+
+
+.animated-background__particle--three {
+  top: 65%;
+  left: 12%;
+
+  width: 6px;
+  height: 6px;
+
+  animation-delay: 3s;
+}
+
+
+.animated-background__particle--four {
+  bottom: 20%;
+  right: 15%;
+
+  width: 4px;
+  height: 4px;
+
+  animation-delay: 4.5s;
+}
+
+
+.animated-background__particle--five {
+  top: 15%;
+  left: 55%;
+
+  width: 3px;
+  height: 3px;
+
+  animation-delay: 2s;
+}
+
+
+/* =========================================================
+   VIGNETTE
+   ========================================================= */
+
+.animated-background__vignette {
+  position: absolute;
+  inset: 0;
+
+  z-index: 5;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 40%,
+      rgba(15, 23, 42, 0.035) 100%
+    );
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+
+/* Base */
+
+@keyframes ab-base-drift {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+
+/* Orb 1 */
+
+@keyframes ab-orb-one {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+  }
+
+  33% {
+    transform:
+      translate3d(70px, 40px, 0)
+      scale(1.08);
+  }
+
+  66% {
+    transform:
+      translate3d(20px, 100px, 0)
+      scale(0.95);
+  }
+}
+
+
+/* Orb 2 */
+
+@keyframes ab-orb-two {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate3d(-90px, 60px, 0)
+      scale(1.08);
+  }
+}
+
+
+/* Orb 3 */
+
+@keyframes ab-orb-three {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+  }
+
+  40% {
+    transform:
+      translate3d(-60px, -50px, 0)
+      scale(1.06);
+  }
+
+  70% {
+    transform:
+      translate3d(80px, -20px, 0)
+      scale(0.96);
+  }
+}
+
+
+/* Orb glow animations
+   IMPORTANT:
+   These only animate opacity.
+   They do NOT animate transform.
+*/
+
+@keyframes ab-orb-glow-one {
+  0%,
+  100% {
+    opacity: 0.42;
+  }
+
+  50% {
+    opacity: 0.68;
+  }
+}
+
+
+@keyframes ab-orb-glow-two {
+  0%,
+  100% {
+    opacity: 0.38;
+  }
+
+  50% {
+    opacity: 0.62;
+  }
+}
+
+
+@keyframes ab-orb-glow-three {
+  0%,
+  100% {
+    opacity: 0.32;
+  }
+
+  50% {
+    opacity: 0.55;
+  }
+}
+
+
+/* Grid */
+
+@keyframes ab-grid-drift {
+  0% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(25px, 15px, 0);
+  }
+
+  100% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+}
+
+
+/* Light */
+
+@keyframes ab-light-sweep {
+  0% {
+    transform:
+      translate3d(-80%, 0, 0)
+      rotate(18deg);
+  }
+
+  50% {
+    transform:
+      translate3d(220%, 0, 0)
+      rotate(18deg);
+  }
+
+  100% {
+    transform:
+      translate3d(-80%, 0, 0)
+      rotate(18deg);
+  }
+}
+
+
+/* Center */
+
+@keyframes ab-center-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform:
+      translate(-50%, -50%)
+      scale(0.96);
+  }
+
+  50% {
+    opacity: 1;
+    transform:
+      translate(-50%, -50%)
+      scale(1.04);
+  }
+}
+
+
+/* Particles */
+
+@keyframes ab-particle-float {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0);
+
+    opacity: 0.25;
+  }
+
+  50% {
+    transform:
+      translate3d(0, -25px, 0);
+
+    opacity: 0.75;
+  }
+}
+
+
+/* =========================================================
+   INTENSITY
+   ========================================================= */
+
+.animated-background--low {
+  opacity: 0.65;
+}
+
+
+.animated-background--normal {
+  opacity: 1;
+}
+
+
+.animated-background--high {
+  opacity: 1.15;
+}
+
+
+/* =========================================================
+   DASHBOARD VARIANT
+   ========================================================= */
+
+.animated-background--dashboard {
+  --ab-primary: #0f9d8a;
+  --ab-secondary: #2563eb;
+  --ab-accent: #06b6d4;
+}
+
+
+.animated-background--dashboard
+.animated-background__grid {
+  opacity: 0.22;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+  .animated-background__orb {
+    filter: blur(65px);
+  }
+
+  .animated-background__orb--one {
+    width: 360px;
+    height: 360px;
+  }
+
+  .animated-background__orb--two {
+    width: 420px;
+    height: 420px;
+  }
+
+  .animated-background__orb--three {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .animated-background__orb {
+    filter: blur(55px);
+  }
+
+  .animated-background__orb--one {
+    width: 300px;
+    height: 300px;
+  }
+
+  .animated-background__orb--two {
+    width: 340px;
+    height: 340px;
+  }
+
+  .animated-background__orb--three {
+    width: 320px;
+    height: 320px;
+  }
+
+  .animated-background__grid {
+    background-size: 42px 42px;
+    opacity: 0.22;
+  }
+
+  .animated-background__light-sweep {
+    opacity: 0.10;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .animated-background__orb--one {
+    top: -100px;
+    left: -140px;
+  }
+
+  .animated-background__orb--two {
+    right: -180px;
+  }
+
+  .animated-background__orb--three {
+    bottom: -160px;
+    left: 15%;
+  }
+
+  .animated-background__particle {
+    transform: scale(0.8);
+  }
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+@media (prefers-color-scheme: dark) {
+  .animated-background {
+    background:
+      radial-gradient(
+        circle at 10% 15%,
+        rgba(15, 157, 138, 0.15),
+        transparent 32%
+      ),
+      radial-gradient(
+        circle at 90% 20%,
+        rgba(37, 99, 235, 0.14),
+        transparent 30%
+      ),
+      linear-gradient(
+        135deg,
+        #071615 0%,
+        #071b25 50%,
+        #081426 100%
+      );
+  }
+
+  .animated-background__grid {
+    background-image:
+      linear-gradient(
+        rgba(45, 212, 191, 0.07) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(45, 212, 191, 0.07) 1px,
+        transparent 1px
+      );
+  }
+
+  .animated-background__vignette {
+    background:
+      radial-gradient(
+        ellipse at center,
+        transparent 35%,
+        rgba(0, 0, 0, 0.18) 100%
+      );
+  }
+}
+
+
+
+/* =========================================================
+   DASHBOARD LIGHT OVERRIDE
+   ---------------------------------------------------------
+   Dashboard always stays in premium light healthcare mode,
+   even when the user's OS/browser prefers dark mode.
+========================================================= */
+
+#root:has(.dashboard-layout) .animated-background {
+  background:
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(15, 157, 138, 0.14),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 90% 20%,
+      rgba(37, 99, 235, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(6, 182, 212, 0.10),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #f8fcfc 0%,
+      #eef9f8 45%,
+      #f4f8ff 100%
+    );
+}
+
+
+/* ---------------------------------------------------------
+   Dashboard animated layers
+--------------------------------------------------------- */
+
+#root:has(.dashboard-layout)
+.animated-background__base {
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.20),
+      transparent 35%,
+      rgba(255, 255, 255, 0.16)
+    );
+}
+
+
+#root:has(.dashboard-layout)
+.animated-background__orb--one {
+  background:
+    radial-gradient(
+      circle,
+      rgba(15, 157, 138, 0.48) 0%,
+      rgba(15, 157, 138, 0.20) 35%,
+      transparent 70%
+    );
+}
+
+
+#root:has(.dashboard-layout)
+.animated-background__orb--two {
+  background:
+    radial-gradient(
+      circle,
+      rgba(37, 99, 235, 0.42) 0%,
+      rgba(37, 99, 235, 0.16) 38%,
+      transparent 72%
+    );
+}
+
+
+#root:has(.dashboard-layout)
+.animated-background__orb--three {
+  background:
+    radial-gradient(
+      circle,
+      rgba(6, 182, 212, 0.34) 0%,
+      rgba(6, 182, 212, 0.12) 40%,
+      transparent 72%
+    );
+}
+
+
+/* ---------------------------------------------------------
+   Dashboard grid
+--------------------------------------------------------- */
+
+#root:has(.dashboard-layout)
+.animated-background__grid {
+  opacity: 0.26;
+
+  background-image:
+    linear-gradient(
+      rgba(15, 118, 110, 0.065) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(15, 118, 110, 0.065) 1px,
+      transparent 1px
+    );
+}
+
+
+/* ---------------------------------------------------------
+   Dashboard light sweep
+--------------------------------------------------------- */
+
+#root:has(.dashboard-layout)
+.animated-background__light-sweep {
+  opacity: 0.18;
+}
+
+
+/* ---------------------------------------------------------
+   Dashboard center glow
+--------------------------------------------------------- */
+
+#root:has(.dashboard-layout)
+.animated-background__center-glow {
+  background:
+    radial-gradient(
+      circle,
+      rgba(15, 157, 138, 0.09) 0%,
+      rgba(6, 182, 212, 0.045) 35%,
+      transparent 70%
+    );
+}
+
+
+/* ---------------------------------------------------------
+   Dashboard vignette
+   Very subtle — no dark wash.
+--------------------------------------------------------- */
+
+#root:has(.dashboard-layout)
+.animated-background__vignette {
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 55%,
+      rgba(15, 23, 42, 0.018) 100%
+    );
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-background__base,
+  .animated-background__orb,
+  .animated-background__grid,
+  .animated-background__light-sweep,
+  .animated-background__center-glow,
+  .animated-background__particle {
+    animation: none !important;
+  }
+}
+
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print {
+  .animated-background {
+    display: none !important;
+  }
+}

@@ -1,0 +1,1141 @@
+/* =========================================================
+   DASHBOARD HEADER
+   Premium Healthcare Glassmorphism
+========================================================= */
+
+.dashboard-header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+
+  width: 100%;
+
+  padding: 16px 22px 0;
+
+  pointer-events: none;
+}
+
+.dashboard-header-inner {
+  position: relative;
+
+  width: 100%;
+  min-height: 82px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  padding: 15px 18px 15px 22px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(16, 27, 39, 0.88),
+      rgba(13, 30, 42, 0.76)
+    );
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  pointer-events: auto;
+}
+
+
+/* =========================================================
+   HEADER LEFT
+========================================================= */
+
+.dashboard-header-left {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.dashboard-mobile-menu-btn {
+  display: none;
+
+  width: 44px;
+  height: 44px;
+
+  flex-shrink: 0;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  color: inherit;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.dashboard-mobile-menu-btn:hover {
+  background: rgba(0, 180, 190, 0.1);
+
+  border-color: rgba(0, 190, 200, 0.22);
+}
+
+.dashboard-mobile-menu-btn i {
+  font-size: 24px;
+}
+
+
+/* =========================================================
+   HEADER CONTEXT
+========================================================= */
+
+.dashboard-header-context {
+  min-width: 0;
+}
+
+.dashboard-header-eyebrow {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 4px;
+
+  color: rgba(160, 190, 205, 0.82);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+.dashboard-header-status-dot {
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #37d4c5;
+
+  box-shadow:
+    0 0 0 4px rgba(55, 212, 197, 0.08),
+    0 0 14px rgba(55, 212, 197, 0.42);
+}
+
+.dashboard-header-title {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.02em;
+}
+
+.dashboard-header-title span {
+  background:
+    linear-gradient(
+      135deg,
+      #5ce1d4,
+      #5ca7ff
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+.dashboard-header-subtitle {
+  margin: 4px 0 0;
+
+  max-width: 580px;
+
+  color: rgba(184, 204, 214, 0.68);
+
+  font-size: 12px;
+
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   HEADER RIGHT
+========================================================= */
+
+.dashboard-header-right {
+  position: relative;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+/* =========================================================
+   HEADER ICON BUTTON
+========================================================= */
+
+.dashboard-header-icon-btn {
+  position: relative;
+
+  width: 43px;
+  height: 43px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.055);
+
+  color: rgba(235, 246, 249, 0.88);
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    color 0.25s ease;
+}
+
+.dashboard-header-icon-btn:hover {
+  background: rgba(0, 180, 190, 0.1);
+
+  border-color: rgba(0, 190, 200, 0.24);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 8px 24px rgba(0, 180, 190, 0.1);
+}
+
+.dashboard-header-icon-btn i {
+  font-size: 20px;
+}
+
+
+/* =========================================================
+   NOTIFICATION
+========================================================= */
+
+.dashboard-notification-btn::after {
+  content: "";
+
+  position: absolute;
+
+  top: 9px;
+  right: 9px;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #5ce1d4;
+
+  box-shadow:
+    0 0 0 3px rgba(92, 225, 212, 0.08);
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.dashboard-header-search-wrapper {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-search-box {
+  position: absolute;
+
+  top: calc(100% + 12px);
+  right: 0;
+
+  width: 290px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 7px 8px;
+
+  border: 1px solid rgba(255, 255, 255, 0.11);
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(18, 32, 44, 0.98),
+      rgba(12, 27, 39, 0.97)
+    );
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.24);
+}
+
+.dashboard-search-box > i {
+  margin-left: 8px;
+
+  color: rgba(180, 204, 214, 0.65);
+
+  font-size: 19px;
+}
+
+.dashboard-search-box input {
+  min-width: 0;
+
+  flex: 1;
+
+  height: 38px;
+
+  border: 0;
+  outline: none;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  font: inherit;
+
+  font-size: 13px;
+}
+
+.dashboard-search-box input::placeholder {
+  color: rgba(180, 204, 214, 0.48);
+}
+
+.dashboard-search-box button {
+  width: 36px;
+  height: 36px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 180, 190, 0.9),
+      rgba(60, 130, 220, 0.9)
+    );
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.dashboard-search-box button:hover {
+  transform: translateX(2px);
+
+  filter: brightness(1.08);
+}
+
+.dashboard-search-box button i {
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.dashboard-header-divider {
+  width: 1px;
+  height: 32px;
+
+  margin: 0 3px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(255, 255, 255, 0.14),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.dashboard-header-profile-wrapper {
+  position: relative;
+}
+
+.dashboard-header-profile {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 5px 8px 5px 5px;
+
+  border: 1px solid transparent;
+
+  border-radius: 15px;
+
+  background: transparent;
+
+  color: inherit;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.dashboard-header-profile:hover,
+.dashboard-header-profile[aria-expanded="true"] {
+  background: rgba(255, 255, 255, 0.055);
+
+  border-color: rgba(255, 255, 255, 0.09);
+}
+
+.dashboard-header-avatar {
+  position: relative;
+
+  width: 39px;
+  height: 39px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 184, 190, 0.95),
+      rgba(58, 125, 221, 0.95)
+    );
+
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 800;
+
+  box-shadow:
+    0 7px 20px rgba(0, 160, 180, 0.16);
+}
+
+.dashboard-header-online-dot {
+  position: absolute;
+
+  right: -2px;
+  bottom: -2px;
+
+  width: 10px;
+  height: 10px;
+
+  border: 2px solid #10202b;
+
+  border-radius: 50%;
+
+  background: #48d9a8;
+}
+
+.dashboard-header-user-info {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 2px;
+}
+
+.dashboard-header-user-info strong {
+  max-width: 130px;
+
+  overflow: hidden;
+
+  color: #f4f9fb;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.dashboard-header-user-info small {
+  color: rgba(175, 202, 211, 0.58);
+
+  font-size: 10px;
+  font-weight: 600;
+
+  line-height: 1.2;
+}
+
+.dashboard-header-profile-arrow {
+  color: rgba(185, 207, 215, 0.55);
+
+  font-size: 16px;
+
+  transition: transform 0.2s ease;
+}
+
+
+/* =========================================================
+   PROFILE DROPDOWN
+========================================================= */
+
+.dashboard-profile-dropdown {
+  position: absolute;
+
+  top: calc(100% + 12px);
+  right: 0;
+
+  width: 300px;
+
+  padding: 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.11);
+
+  border-radius: 19px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 32, 44, 0.98),
+      rgba(10, 25, 37, 0.98)
+    );
+
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.dashboard-profile-dropdown-user {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 10px;
+}
+
+.dashboard-profile-dropdown-avatar {
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 184, 190, 0.95),
+      rgba(58, 125, 221, 0.95)
+    );
+
+  color: #ffffff;
+
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.dashboard-profile-dropdown-details {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.dashboard-profile-dropdown-details strong {
+  overflow: hidden;
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.dashboard-profile-dropdown-details span {
+  overflow: hidden;
+
+  color: rgba(175, 202, 211, 0.6);
+
+  font-size: 10px;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.dashboard-profile-dropdown-details small {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 5px;
+
+  margin-top: 2px;
+
+  color: rgba(92, 225, 212, 0.8);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.07em;
+}
+
+.dashboard-profile-dropdown-details small i {
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   DROPDOWN DIVIDER
+========================================================= */
+
+.dashboard-profile-dropdown-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 7px 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.09),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   DROPDOWN ITEM
+========================================================= */
+
+.dashboard-profile-dropdown-item {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 10px;
+
+  border: 1px solid transparent;
+
+  border-radius: 13px;
+
+  color: inherit;
+
+  text-decoration: none;
+
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s ease;
+}
+
+.dashboard-profile-dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+
+  border-color: rgba(255, 255, 255, 0.06);
+
+  transform: translateX(2px);
+}
+
+.dashboard-dropdown-item-icon {
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  background: rgba(0, 180, 190, 0.08);
+
+  color: #5ce1d4;
+}
+
+.dashboard-dropdown-item-icon i {
+  font-size: 17px;
+}
+
+.dashboard-profile-dropdown-item > span:nth-child(2) {
+  min-width: 0;
+
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.dashboard-profile-dropdown-item strong {
+  color: #edf7fa;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.dashboard-profile-dropdown-item small {
+  color: rgba(175, 202, 211, 0.53);
+
+  font-size: 9px;
+
+  line-height: 1.35;
+}
+
+.dashboard-profile-dropdown-item > i {
+  color: rgba(175, 202, 211, 0.4);
+
+  font-size: 17px;
+}
+
+
+/* =========================================================
+   STATIC SECURITY ITEM
+========================================================= */
+
+.dashboard-dropdown-static {
+  cursor: default;
+}
+
+.dashboard-dropdown-static:hover {
+  transform: none;
+
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.dashboard-secure-badge {
+  width: 22px !important;
+  height: 22px;
+
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 auto !important;
+
+  border-radius: 50%;
+
+  background: rgba(72, 217, 168, 0.1);
+
+  color: #48d9a8;
+}
+
+.dashboard-secure-badge i {
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+.dashboard-profile-logout {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 10px;
+
+  border: 1px solid transparent;
+
+  border-radius: 13px;
+
+  background: transparent;
+
+  color: #ff9da7;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s ease;
+}
+
+.dashboard-profile-logout:hover {
+  background: rgba(225, 75, 95, 0.08);
+
+  border-color: rgba(225, 75, 95, 0.13);
+
+  transform: translateX(2px);
+}
+
+.dashboard-profile-logout > span {
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: rgba(225, 75, 95, 0.08);
+}
+
+.dashboard-profile-logout i {
+  font-size: 17px;
+}
+
+.dashboard-profile-logout strong {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1199px) {
+  .dashboard-header {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .dashboard-header-inner {
+    padding-left: 17px;
+    padding-right: 15px;
+  }
+
+  .dashboard-header-subtitle {
+    display: none;
+  }
+
+  .dashboard-header-title {
+    font-size: 20px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 991px) {
+  .dashboard-header {
+    position: sticky;
+
+    top: 0;
+
+    padding: 12px 14px 0;
+  }
+
+  .dashboard-header-inner {
+    min-height: 70px;
+
+    padding: 11px 12px;
+
+    border-radius: 18px;
+  }
+
+  .dashboard-mobile-menu-btn {
+    display: inline-flex;
+  }
+
+  .dashboard-header-left {
+    gap: 11px;
+  }
+
+  .dashboard-header-eyebrow {
+    font-size: 8px;
+
+    letter-spacing: 0.1em;
+  }
+
+  .dashboard-header-status-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .dashboard-header-title {
+    font-size: 17px;
+  }
+
+  .dashboard-header-right {
+    gap: 7px;
+  }
+
+  .dashboard-header-divider {
+    display: none;
+  }
+
+  .dashboard-header-user-info {
+    display: none;
+  }
+
+  .dashboard-header-profile {
+    padding: 3px;
+  }
+
+  .dashboard-header-profile-arrow {
+    display: none;
+  }
+
+  .dashboard-header-avatar {
+    width: 39px;
+    height: 39px;
+  }
+
+  .dashboard-search-toggle {
+    display: inline-flex;
+  }
+
+  .dashboard-notification-btn {
+    display: inline-flex;
+  }
+
+  .dashboard-profile-dropdown {
+    right: -4px;
+
+    width: min(300px, calc(100vw - 28px));
+  }
+
+  .dashboard-search-box {
+    position: fixed;
+
+    top: 82px;
+    left: 14px;
+    right: 14px;
+
+    width: auto;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575px) {
+  .dashboard-header {
+    padding: 9px 10px 0;
+  }
+
+  .dashboard-header-inner {
+    min-height: 64px;
+
+    gap: 8px;
+
+    padding: 9px 9px;
+
+    border-radius: 16px;
+  }
+
+  .dashboard-header-left {
+    gap: 8px;
+  }
+
+  .dashboard-mobile-menu-btn,
+  .dashboard-header-icon-btn {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 11px;
+  }
+
+  .dashboard-mobile-menu-btn i {
+    font-size: 21px;
+  }
+
+  .dashboard-header-icon-btn i {
+    font-size: 18px;
+  }
+
+  .dashboard-header-avatar {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 11px;
+
+    font-size: 14px;
+  }
+
+  .dashboard-header-online-dot {
+    width: 9px;
+    height: 9px;
+  }
+
+  .dashboard-header-eyebrow {
+    display: none;
+  }
+
+  .dashboard-header-title {
+    max-width: 155px;
+
+    overflow: hidden;
+
+    font-size: 15px;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+  }
+
+  .dashboard-profile-dropdown {
+    top: calc(100% + 9px);
+  }
+}
+
+
+/* =========================================================
+   EXTRA SMALL
+========================================================= */
+
+@media (max-width: 380px) {
+  .dashboard-header-inner {
+    padding: 8px;
+  }
+
+  .dashboard-header-left {
+    gap: 6px;
+  }
+
+  .dashboard-header-right {
+    gap: 4px;
+  }
+
+  .dashboard-header-title {
+    max-width: 120px;
+
+    font-size: 14px;
+  }
+
+  .dashboard-mobile-menu-btn,
+  .dashboard-header-icon-btn {
+    width: 35px;
+    height: 35px;
+  }
+
+  .dashboard-header-avatar {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.dashboard-header button:focus-visible,
+.dashboard-header a:focus-visible,
+.dashboard-header input:focus-visible {
+  outline: 2px solid rgba(92, 225, 212, 0.7);
+
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-header *,
+  .dashboard-header *::before,
+  .dashboard-header *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    scroll-behavior: auto !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}

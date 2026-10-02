@@ -1,0 +1,16 @@
+# LLM Provider
+groq
+
+# LangChain
+langchain
+langchain-core
+langchain-groq
+
+# LangGraph
+langgraph
+
+# Data Validation
+pydantic
+
+# Environment Variables
+python-dotenv
