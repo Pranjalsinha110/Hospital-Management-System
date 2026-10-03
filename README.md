@@ -115,8 +115,6 @@ Python
    ↓
 GenAI workflow
    ↓
-AgenticAI workfloe
-   ↓
 Groq
    ↓
 LLM
