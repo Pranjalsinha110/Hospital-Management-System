@@ -172,7 +172,7 @@ For unrelated questions, the assistant responds with a healthcare-domain restric
                                                   │
                                                   ▼
                                           ┌──────────────┐
-                                          │    Agentic   |
+                                          │   GenAI      |
                                           |   Workflow   │
                                           └──────┬───────┘
                                                  │
