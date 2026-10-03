@@ -113,9 +113,9 @@ and when professional medical attention may be appropriate.
 ```text
 Python
    ↓
-LangGraph
+GenAI workflow
    ↓
-LangChain
+AgenticAI workfloe
    ↓
 Groq
    ↓
@@ -172,7 +172,8 @@ For unrelated questions, the assistant responds with a healthcare-domain restric
                                                   │
                                                   ▼
                                           ┌──────────────┐
-                                          │  LangGraph   │
+                                          │    Agentic   |
+                                          |   Workflow   │
                                           └──────┬───────┘
                                                  │
                                                  ▼
@@ -206,7 +207,7 @@ For unrelated questions, the assistant responds with a healthcare-domain restric
 | 🚂 Express.js | REST API           |
 | 🔐 JWT        | Authentication     |
 | 🔒 bcrypt     | Password hashing   |
-| 🗄️ MongoDB   | Database           |
+| 🗄️ MongoDB    | Database           |
 | 🧩 Mongoose   | MongoDB ODM        |
 | 💳 Razorpay   | Payment processing |
 
@@ -217,9 +218,9 @@ For unrelated questions, the assistant responds with a healthcare-domain restric
 | Technology       | Purpose                   |
 | ---------------- | ------------------------- |
 | 🐍 Python        | AI service                |
-| 🧠 LangGraph     | AI workflow               |
-| 🔗 LangChain     | LLM framework             |
-| ⚡ Groq           | LLM inference             |
+| 🧠 GenAi         | AI workflow               |
+| 🔗 AgenticAI     | LLM framework             |
+| ⚡ Groq          | LLM inference             |
 | 📦 Pydantic      | Data validation           |
 | 🔐 python-dotenv | Environment configuration |
 
@@ -566,7 +567,7 @@ MongoDB Atlas
 ```text
 Python
    ↓
-LangGraph
+Agentic Workflow
    ↓
 Groq
 ```
@@ -594,8 +595,8 @@ Groq
           ┌────────┘     └─────────┐
           ▼                        ▼
    ┌──────────────┐         ┌──────────────┐
-   │ MongoDB Atlas │         │ Python AI    │
-   │   Database   │         │ LangGraph    │
+   │ MongoDB Atlas │        │ Python AI    │
+   │   Database   │         │              │
    └──────────────┘         └──────┬───────┘
                                     │
                                     ▼
@@ -734,7 +735,7 @@ Add an appropriate open-source license if you plan to distribute the project pub
 
 ## Pranjal Sinha
 
-### Full-Stack Developer • AI Enthusiast • Healthcare Technology
+### Full-Stack/GenAI/AgenticAI Developer • AI Enthusiast • Healthcare Technology
 
 Built with ❤️ using:
 
