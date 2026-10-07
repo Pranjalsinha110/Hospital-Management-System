@@ -737,7 +737,7 @@ Add an appropriate open-source license if you plan to distribute the project pub
 
 Built with ❤️ using:
 
-**React • Node.js • Express • MongoDB • Python • LangGraph • Groq**
+**React • Node.js • Express • MongoDB • Python • GenAI • Groq**
 
 <br/>
 
