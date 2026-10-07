@@ -7,6 +7,10 @@ import Auth from "../pages/public/Auth";
 import Doctors from "../pages/public/Doctors";
 import Department from "../pages/public/Department";
 import Contact from "../pages/public/Contact";
+import PrivacyPolicy from "../pages/public/PrivacyPolicy";
+import TermsConditions from "../pages/public/TermsConditions"
+
+
 
 import DashboardLayout from "../components/layout/DashboardLayout";
 import PatientDashboard from "../pages/patients/PatientDashboard";
@@ -43,6 +47,10 @@ const AppRoutes = () => {
       <Route path="/doctors" element={<Doctors />} />
       <Route path="/departments" element={<Department />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/terms" element={<TermsConditions />} />
+
+
 
       {/* Protected patient routes */}
       <Route element={<ProtectedRoute />}>

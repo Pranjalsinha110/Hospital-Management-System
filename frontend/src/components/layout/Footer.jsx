@@ -89,9 +89,9 @@ const Footer = () => {
               My Appointments
             </Link>
 
-            <Link to="/ai-assistant">
+            {/* <Link to="/ai-assistant">
               AI Assistant
-            </Link>
+            </Link> */}
 
             <Link to="/contact">
               Contact Support

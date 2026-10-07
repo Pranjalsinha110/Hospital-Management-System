@@ -6,7 +6,7 @@ import Footer from "./components/layout/Footer";
 import AppRoutes from "./routes/Approutes";
 import AIAssistant from "./components/Ai/AIAssistant";
 import { AuthProvider } from "./context/Authcontext";
-
+import ScrollToTop from "./components/common/ScrollToTop";
 function AppContent() {
   const location = useLocation();
 
@@ -20,6 +20,7 @@ function AppContent() {
       <Navbar />
 
       <main className="app-content">
+         <ScrollToTop />
         <AppRoutes />
       </main>
 
